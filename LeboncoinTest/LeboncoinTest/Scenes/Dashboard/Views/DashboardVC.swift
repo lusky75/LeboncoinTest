@@ -27,6 +27,11 @@ class DashboardVC: UIViewController {
         productsViewModel = ProductsViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        fetchProductsListRequest()
+    }
+    
     func setupDashboardView() {
         dashboardView = DashboardView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
                 
@@ -47,6 +52,25 @@ class DashboardVC: UIViewController {
         dashboardView?.collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.cellIdentifier)
     }
     
+    // MARK: Request
+    
+    func fetchProductsListRequest() {
+        
+        ServicesAPIManager.shared.fetchProductsList(url: .listingProducts, completionHandler: {
+            (data, error) in
+            if let error = error {
+                print("error on request api \(error)")
+                return
+            }
+            if let data = data {
+                self.productsViewModel?.listOfProducts = data
+                self.dashboardView?.collectionView.reloadData()
+            }
+        })
+    }
+    
+    // MARK: Action
+    
     @objc func navigateItemAction() {
         print("Message: I try to navigate to item !")
         coordinator?.navigateToProductDetail()
@@ -61,16 +85,18 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10//productsViewModel?.listOfProducts.count ?? 0
+        return productsViewModel?.listOfProducts.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.cellIdentifier, for: indexPath) as! ProductCollectionViewCell
         
-        cell.productCardView.productImageView.loadFrom(URLAddress: "https://raw.githubusercontent.com/leboncoin/paperclip/master/ad-small/2c9563bbe85f12a5dcaeb2c40989182463270404.jpg")
-        cell.productCardView.productTitleLabel.text = "Statue homme noir assis en plâtre polychrome"
-        cell.productCardView.productPriceLabel.text = String(140.00) + "€"
+        let product: Product = productsViewModel!.listOfProducts[indexPath.row]
+        let imageAddress = product.images_url?.small
+        cell.productCardView.productImageView.loadFrom(URLAddress: imageAddress ?? "")
+        cell.productCardView.productTitleLabel.text = product.title
+        cell.productCardView.productPriceLabel.text = String(product.price)
         
         return cell
     }
@@ -82,7 +108,7 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
         let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
-        return CGSize(width: widthPerItem, height: 280)
+        return CGSize(width: widthPerItem, height: 350)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

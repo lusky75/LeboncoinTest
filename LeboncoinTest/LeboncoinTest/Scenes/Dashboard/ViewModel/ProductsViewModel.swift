@@ -9,13 +9,13 @@ import Foundation
 
 protocol ProductsViewModelProtocol {
     
-    var listOfProducts: [Any] { get set }
+    var listOfProducts: [Product] { get set }
     
 }
 
 class ProductsViewModel: ProductsViewModelProtocol {
     
-    var listOfProducts: [Any] = []
+    var listOfProducts: [Product] = []
     
     init() {
         
