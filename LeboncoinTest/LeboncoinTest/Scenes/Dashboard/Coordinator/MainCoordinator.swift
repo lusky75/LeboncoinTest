@@ -11,6 +11,8 @@ class MainCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     var navigationController: UINavigationController
+    
+    var productDetail: Product?
 
     init(navigationController: UINavigationController) {
         print("init navigationController\(navigationController)")
@@ -27,7 +29,7 @@ class MainCoordinator: Coordinator {
     
     func navigateToProductDetail() {
         
-        print("create account")
+        print("navigate to product detail: \(String(describing: productDetail))")
         let productDetailVC = ProductDetailVC()
         productDetailVC.coordinator = self
         self.navigationController.pushViewController(productDetailVC, animated: true)

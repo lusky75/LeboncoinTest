@@ -8,14 +8,13 @@
 import Foundation
 import UIKit
 
-@IBDesignable
 class ProductCardView: UIView {
     
     var productImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "")
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         //imageView.contentMode = .scaleAspectFit
         return imageView
@@ -26,6 +25,7 @@ class ProductCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
         label.textColor = .black
+        label.font = UIFont.setDemiBoldFont(size: 16)
         label.numberOfLines = 0
         return label
     }()
@@ -34,16 +34,37 @@ class ProductCardView: UIView {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
-        label.textColor = .orange
+        label.textColor = .black
+        label.font = UIFont.setDemiBoldFont(size: 13)
         return label
     }()
     
-    var productDescriptionLabel: UILabel = {
+    var productCategoryLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
-        label.textColor = .black
+        label.textColor = .gray
         label.numberOfLines = 0
+        label.font = UIFont.setAppFont(size: 12)
+        return label
+    }()
+    
+    var urgentProductView: UIView = {
+        let view: UIView = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 10
+        view.backgroundColor = UIColor.orange.withAlphaComponent(0.2)
+        view.isHidden = true
+        return view
+    }()
+    
+    var urgentProductLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Urgent"
+        label.textColor = .orange
+        label.numberOfLines = 0
+        label.font = UIFont.setAppFont(size: 10)
         return label
     }()
 
@@ -58,6 +79,10 @@ class ProductCardView: UIView {
         addSubview(productImageView)
         addSubview(productTitleLabel)
         addSubview(productPriceLabel)
+        addSubview(productCategoryLabel)
+        
+        addSubview(urgentProductView)
+        urgentProductView.addSubview(urgentProductLabel)
     }
     
     func setupViewsConstraints() {
@@ -75,7 +100,18 @@ class ProductCardView: UIView {
             productPriceLabel.topAnchor.constraint(equalTo: productTitleLabel.bottomAnchor, constant: 5),
             productPriceLabel.leftAnchor.constraint(equalTo: productTitleLabel.leftAnchor),
             productPriceLabel.rightAnchor.constraint(equalTo: productTitleLabel.rightAnchor),
-            productPriceLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
+            //productPriceLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
+            
+            productCategoryLabel.topAnchor.constraint(equalTo: productPriceLabel.bottomAnchor, constant: 5),
+            productCategoryLabel.leftAnchor.constraint(equalTo: productTitleLabel.leftAnchor),
+            
+            urgentProductView.topAnchor.constraint(equalTo: productCategoryLabel.bottomAnchor, constant: 5),
+            urgentProductView.leftAnchor.constraint(equalTo: productTitleLabel.leftAnchor),
+            urgentProductView.heightAnchor.constraint(equalToConstant: 20),
+            
+            urgentProductLabel.leftAnchor.constraint(equalTo: urgentProductView.leftAnchor, constant: 10),
+            urgentProductLabel.rightAnchor.constraint(equalTo: urgentProductView.rightAnchor, constant: -10),
+            urgentProductLabel.centerYAnchor.constraint(equalTo: urgentProductView.centerYAnchor),
         ])
     }
 
