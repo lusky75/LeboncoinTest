@@ -10,6 +10,12 @@ import UIKit
 
 class ProductDetailView: UIView {
     
+    var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     var productDetailImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,43 +86,50 @@ class ProductDetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(productDetailImageView)
-        addSubview(productDetailTitleLabel)
-        addSubview(productDetailPriceLabel)
-        addSubview(productDetailCategoryLabel)
         
-        addSubview(productDetailDateLabel)
+        addSubview(scrollView)
+        scrollView.addSubview(productDetailImageView)
+        scrollView.addSubview(productDetailTitleLabel)
+        scrollView.addSubview(productDetailPriceLabel)
+        scrollView.addSubview(productDetailCategoryLabel)
         
-        addSubview(productDetailDescriptionLabel)
-        addSubview(productDetailDescriptionContentLabel)
+        scrollView.addSubview(productDetailDateLabel)
+        
+        scrollView.addSubview(productDetailDescriptionLabel)
+        scrollView.addSubview(productDetailDescriptionContentLabel)
                 
         NSLayoutConstraint.activate([
-            productDetailImageView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            productDetailImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             productDetailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             productDetailImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             productDetailImageView.heightAnchor.constraint(equalTo: productDetailImageView.widthAnchor),
             
             productDetailTitleLabel.topAnchor.constraint(equalTo: productDetailImageView.bottomAnchor, constant: 20),
-            productDetailTitleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
-            productDetailTitleLabel.rightAnchor.constraint(equalTo: productDetailImageView.rightAnchor),
+            productDetailTitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            productDetailTitleLabel.trailingAnchor.constraint(equalTo: productDetailImageView.trailingAnchor),
             
             productDetailPriceLabel.topAnchor.constraint(equalTo: productDetailTitleLabel.bottomAnchor, constant: 10),
-            productDetailPriceLabel.leftAnchor.constraint(equalTo: productDetailTitleLabel.leftAnchor),
-            productDetailPriceLabel.rightAnchor.constraint(equalTo: productDetailTitleLabel.rightAnchor),
+            productDetailPriceLabel.leadingAnchor.constraint(equalTo: productDetailTitleLabel.leadingAnchor),
+            productDetailPriceLabel.trailingAnchor.constraint(equalTo: productDetailTitleLabel.trailingAnchor),
             //productPriceLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
             
             productDetailCategoryLabel.topAnchor.constraint(equalTo: productDetailPriceLabel.bottomAnchor, constant: 10),
             productDetailCategoryLabel.leftAnchor.constraint(equalTo: productDetailTitleLabel.leftAnchor),
             
             productDetailDateLabel.topAnchor.constraint(equalTo: productDetailCategoryLabel.bottomAnchor, constant: 10),
-            productDetailDateLabel.leftAnchor.constraint(equalTo: productDetailTitleLabel.leftAnchor),
+            productDetailDateLabel.leadingAnchor.constraint(equalTo: productDetailTitleLabel.leadingAnchor),
             
             productDetailDescriptionLabel.topAnchor.constraint(equalTo: productDetailDateLabel.bottomAnchor, constant: 20),
-            productDetailDescriptionLabel.leftAnchor.constraint(equalTo: productDetailTitleLabel.leftAnchor),
+            productDetailDescriptionLabel.leadingAnchor.constraint(equalTo: productDetailTitleLabel.leadingAnchor),
             
             productDetailDescriptionContentLabel.topAnchor.constraint(equalTo: productDetailDescriptionLabel.bottomAnchor, constant: 10),
-            productDetailDescriptionContentLabel.leftAnchor.constraint(equalTo: productDetailDescriptionLabel.leftAnchor),
-            productDetailDescriptionContentLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
+            productDetailDescriptionContentLabel.leadingAnchor.constraint(equalTo: productDetailDescriptionLabel.leadingAnchor),
+            productDetailDescriptionContentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
         ])
     }

@@ -18,14 +18,23 @@ extension UIFont {
     static let appFontDemiBold = "AvenirNext-DemiBold"
     
     static func setAppFont(size: CGFloat) -> UIFont {
+        if UIScreen.main.bounds.width > 600 {
+            return UIFont(name: UIFont.appFont, size: size * 1.5)!
+        }
         return UIFont(name: UIFont.appFont, size: size)!
     }
     
     static func setDemiBoldFont(size: CGFloat) -> UIFont {
+        if UIScreen.main.bounds.width > 600 {
+            return UIFont(name: UIFont.appFontDemiBold, size: size * 1.5)!
+        }
         return UIFont(name: UIFont.appFontDemiBold, size: size)!
     }
     
     static func setBoldAppFont(size: CGFloat) -> UIFont {
+        if UIScreen.main.bounds.width > 600 {
+            return UIFont(name: UIFont.appFontBold, size: size * 1.5)!
+        }
         return UIFont(name: UIFont.appFontBold, size: size)!
     }
 }

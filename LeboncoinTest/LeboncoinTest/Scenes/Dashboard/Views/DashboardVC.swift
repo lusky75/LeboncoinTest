@@ -174,7 +174,14 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 product = productsViewModel!.listOfProducts[indexPath.row]
             }
             
-            let imageAddress = product.images_url?.small
+            let widthPerItem = collectionView.frame.width / 2
+            let imageAddress: String? //= product.images_url?.thumb
+            
+            if widthPerItem > 300 {
+                imageAddress = product.images_url?.thumb
+            } else {
+                imageAddress = product.images_url?.small
+            }
             cell.productCardView.productImageView.loadFrom(URLAddress: imageAddress ?? "")
             cell.productCardView.productTitleLabel.text = product.title
             cell.productCardView.productPriceLabel.text = String(Int(product.price)) + " €"
@@ -209,7 +216,10 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         } else {
             let lay = collectionViewLayout as! UICollectionViewFlowLayout
             let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
-            return CGSize(width: widthPerItem, height: 400)
+            if widthPerItem > 300 {
+                return CGSize(width: widthPerItem, height: widthPerItem * 2)
+            }
+            return CGSize(width: widthPerItem, height: widthPerItem * 2.5)
         }
     }
     

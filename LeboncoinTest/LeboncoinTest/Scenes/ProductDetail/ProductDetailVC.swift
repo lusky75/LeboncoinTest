@@ -31,6 +31,10 @@ class ProductDetailVC: UIViewController {
             productDetailView?.productDetailDescriptionContentLabel.text = productDetail.description
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        productDetailView!.scrollView.contentSize = CGSize(width: view.frame.width, height: productDetailView!.productDetailDescriptionContentLabel.frame.origin.y + productDetailView!.productDetailDescriptionContentLabel.frame.height + Constants.ProductDetailView.scrollBottomSpacing)
+    }
                                               
     /*
      Initiate dashboardView's frame and components and add as view's subview
