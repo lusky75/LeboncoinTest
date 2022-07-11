@@ -91,7 +91,7 @@ class ProductCardView: UIView {
             productImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             productImageView.leftAnchor.constraint(equalTo: self.leftAnchor),
             productImageView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            productImageView.heightAnchor.constraint(equalTo: productImageView.widthAnchor, multiplier: 1.25),
+            productImageView.heightAnchor.constraint(equalTo: productImageView.widthAnchor, multiplier: 1.1),
             
             productTitleLabel.leftAnchor.constraint(equalTo: productImageView.leftAnchor),
             productTitleLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10),

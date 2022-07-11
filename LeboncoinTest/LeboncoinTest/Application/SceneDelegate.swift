@@ -19,9 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 //
         let navController = UINavigationController()
+        navController.setNavigationBarHidden(false, animated: false)
+        let tabBarController = TabBarController()
 
         // send that into our coordinator so that it can display view controllers
-        coordinator = MainCoordinator(navigationController: navController)
+        coordinator = MainCoordinator(navigationController: navController, tabBarController: tabBarController)
         
         // tell the coordinator to take over control
         coordinator?.start()

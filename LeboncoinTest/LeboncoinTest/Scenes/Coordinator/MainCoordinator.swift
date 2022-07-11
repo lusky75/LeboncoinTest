@@ -12,13 +12,16 @@ class MainCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
+    var tabBarController: TabBarController
+    
     /*
      productDetail takes the content of the selected product. The content will be used at ProductDetailVC
      */
     var productDetail: Product?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, tabBarController: TabBarController) {
         self.navigationController = navigationController
+        self.tabBarController = tabBarController
     }
 
     /*
@@ -27,15 +30,22 @@ class MainCoordinator: Coordinator {
     func start() {
         let dashboardVC = DashboardVC()
         dashboardVC.coordinator = self
-        self.navigationController.pushViewController(dashboardVC, animated: false)
+        tabBarController.setViewControllers(tabBarController.setupTabBarController(coordinator: self), animated: true)
+        self.navigationController.pushViewController(tabBarController, animated: false)
     }
     
     func navigateToProductDetail() {
-        print("navigate to product detail: \(String(describing: productDetail))")
         let productDetailVC = ProductDetailVC()
         productDetailVC.coordinator = self
+        //self.navigationController.navigationItem.title = "Dashboard"
         self.navigationController.pushViewController(productDetailVC, animated: true)
         
+    }
+    
+    func navigateToProductDetailPhoto() {
+        let productDetailPhotoVC = ProductDetailPhotoVC()
+        productDetailPhotoVC.coordinator = self
+        self.navigationController.pushViewController(productDetailPhotoVC, animated: true)
     }
 }
 

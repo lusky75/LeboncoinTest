@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import CoreGraphics
+import Accelerate
 
 extension UIImageView {
     

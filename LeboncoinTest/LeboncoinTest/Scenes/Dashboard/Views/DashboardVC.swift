@@ -24,8 +24,6 @@ class DashboardVC: UIViewController {
 
     override func viewDidLoad() {
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
         super.viewDidLoad()
         
         view.backgroundColor = .white
@@ -33,9 +31,6 @@ class DashboardVC: UIViewController {
         setupDashboardView()
         
         productsViewModel = ProductsViewModel()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
         if productsViewModel!.listOfProducts.isEmpty {
             fetchProductsListRequest()
@@ -46,11 +41,14 @@ class DashboardVC: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
     /*
      Initiate dashboardView's frame and components and add as view's subview
      */
     func setupDashboardView() {
-        dashboardView = DashboardView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        dashboardView = DashboardView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - self.tabBarController!.tabBar.frame.height))
                 
         view.addSubview(dashboardView!)
         
@@ -219,7 +217,7 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             if widthPerItem > 300 {
                 return CGSize(width: widthPerItem, height: widthPerItem * 2)
             }
-            return CGSize(width: widthPerItem, height: widthPerItem * 2.5)
+            return CGSize(width: widthPerItem, height: widthPerItem * 2.35)
         }
     }
     
@@ -235,7 +233,6 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 dashboardView?.categoriesCollectionView.reloadData()
             })
         } else {
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
             if productsViewModel!.isFiltered {
                 coordinator?.productDetail = productsViewModel?.listOfFilteredProducts[indexPath.row]
             } else {

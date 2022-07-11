@@ -20,16 +20,7 @@ class ProductDetailVC: UIViewController {
         
         setupProductDetailView()
         
-        if let productDetail = coordinator?.productDetail {
-            let imageAddress = productDetail.images_url?.thumb
-            productDetailView?.productDetailImageView.loadFrom(URLAddress: imageAddress ?? "")
-            
-            productDetailView?.productDetailTitleLabel.text = productDetail.title
-            productDetailView?.productDetailPriceLabel.text = String(Int(productDetail.price)) + " €"
-            //productDetailView?.productDetailCategoryLabel.text = "c"
-            productDetailView?.productDetailDateLabel.text = Date().convertStringToDate(fromDate: productDetail.creation_date).displayDateFormat()
-            productDetailView?.productDetailDescriptionContentLabel.text = productDetail.description
-        }
+        setupProductDetailContent()
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,11 +35,27 @@ class ProductDetailVC: UIViewController {
                 
         view.addSubview(productDetailView!)
         
-        addButtonTarget()
+        let tapGestureRecongizer = UITapGestureRecognizer(target: self, action: #selector(navigateToProductDetailPhotoAction))
+        productDetailView!.productDetailImageView.isUserInteractionEnabled = true
+        productDetailView!.productDetailImageView.addGestureRecognizer(tapGestureRecongizer)
+
     }
     
-    func addButtonTarget() {
-        
+    func setupProductDetailContent() {
+        if let productDetail = coordinator?.productDetail {
+            let imageAddress = productDetail.images_url?.thumb
+            productDetailView?.productDetailImageView.loadFrom(URLAddress: imageAddress ?? "")
+            
+            productDetailView?.productDetailTitleLabel.text = productDetail.title
+            productDetailView?.productDetailPriceLabel.text = String(Int(productDetail.price)) + " €"
+            //productDetailView?.productDetailCategoryLabel.text = "c"
+            productDetailView?.productDetailDateLabel.text = Date().convertStringToDate(fromDate: productDetail.creation_date).displayDateFormat()
+            productDetailView?.productDetailDescriptionContentLabel.text = productDetail.description
+        }
+    }
+    
+    @objc func navigateToProductDetailPhotoAction() {
+        coordinator?.navigateToProductDetailPhoto()
     }
 
 }

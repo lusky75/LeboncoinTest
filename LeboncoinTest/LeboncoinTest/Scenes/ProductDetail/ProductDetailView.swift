@@ -104,10 +104,9 @@ class ProductDetailView: UIView {
             scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            productDetailImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            productDetailImageView.topAnchor.constraint(equalTo: self.topAnchor),
             productDetailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             productDetailImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            productDetailImageView.heightAnchor.constraint(equalTo: productDetailImageView.widthAnchor),
             
             productDetailTitleLabel.topAnchor.constraint(equalTo: productDetailImageView.bottomAnchor, constant: 20),
             productDetailTitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
@@ -116,7 +115,6 @@ class ProductDetailView: UIView {
             productDetailPriceLabel.topAnchor.constraint(equalTo: productDetailTitleLabel.bottomAnchor, constant: 10),
             productDetailPriceLabel.leadingAnchor.constraint(equalTo: productDetailTitleLabel.leadingAnchor),
             productDetailPriceLabel.trailingAnchor.constraint(equalTo: productDetailTitleLabel.trailingAnchor),
-            //productPriceLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
             
             productDetailCategoryLabel.topAnchor.constraint(equalTo: productDetailPriceLabel.bottomAnchor, constant: 10),
             productDetailCategoryLabel.leftAnchor.constraint(equalTo: productDetailTitleLabel.leftAnchor),

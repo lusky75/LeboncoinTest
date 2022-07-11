@@ -29,6 +29,10 @@
 		A07CA756287C0BDB00F5076D /* DashboardCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA755287C0BDB00F5076D /* DashboardCollectionHeaderView.swift */; };
 		A07CA758287C46C400F5076D /* ProductCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA757287C46C400F5076D /* ProductCategoryCollectionViewCell.swift */; };
 		A07CA75A287C76B000F5076D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA759287C76B000F5076D /* Constants.swift */; };
+		A07CA75D287CC1D200F5076D /* ProductDetailPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA75C287CC1D200F5076D /* ProductDetailPhotoVC.swift */; };
+		A07CA75F287CD14F00F5076D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA75E287CD14F00F5076D /* TabBarController.swift */; };
+		A07CA761287CD31800F5076D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA760287CD31800F5076D /* UIImage+Extension.swift */; };
+		A07CA764287CD39F00F5076D /* FavoriteProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CA763287CD39F00F5076D /* FavoriteProductsVC.swift */; };
 		A0EA6961287B7C2E00504073 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EA6960287B7C2E00504073 /* UIFont+Extension.swift */; };
 		A0EA6963287B831400504073 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EA6962287B831400504073 /* Date+Extension.swift */; };
 		A0EA6965287B8A8200504073 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EA6964287B8A8200504073 /* ProductDetailView.swift */; };
@@ -78,6 +82,10 @@
 		A07CA755287C0BDB00F5076D /* DashboardCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionHeaderView.swift; sourceTree = "<group>"; };
 		A07CA757287C46C400F5076D /* ProductCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A07CA759287C76B000F5076D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A07CA75C287CC1D200F5076D /* ProductDetailPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPhotoVC.swift; sourceTree = "<group>"; };
+		A07CA75E287CD14F00F5076D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A07CA760287CD31800F5076D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		A07CA763287CD39F00F5076D /* FavoriteProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductsVC.swift; sourceTree = "<group>"; };
 		A0EA6960287B7C2E00504073 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		A0EA6962287B831400504073 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A0EA6964287B8A8200504073 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -179,9 +187,11 @@
 		A0633C3B2878C89B00F0CB8F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A07CA75E287CD14F00F5076D /* TabBarController.swift */,
 				A0633C3C2878C8D800F0CB8F /* Coordinator */,
 				A0633C442878CBC900F0CB8F /* ProductDetail */,
 				A0633C432878CB7B00F0CB8F /* Dashboard */,
+				A07CA762287CD38900F5076D /* FavoriteProducts */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -227,6 +237,7 @@
 		A0633C442878CBC900F0CB8F /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A07CA75B287CC1B100F5076D /* ProductDetailPhoto */,
 				A0633C452878CBEB00F0CB8F /* ProductDetailVC.swift */,
 				A0EA6964287B8A8200504073 /* ProductDetailView.swift */,
 			);
@@ -273,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				A0633C542878D68F00F0CB8F /* UIImageView+Extension.swift */,
+				A07CA760287CD31800F5076D /* UIImage+Extension.swift */,
 				A0EA6960287B7C2E00504073 /* UIFont+Extension.swift */,
 				A0EA6962287B831400504073 /* Date+Extension.swift */,
 			);
@@ -285,6 +297,22 @@
 				A01796F9287A24FC00E54AD8 /* Response */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A07CA75B287CC1B100F5076D /* ProductDetailPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				A07CA75C287CC1D200F5076D /* ProductDetailPhotoVC.swift */,
+			);
+			path = ProductDetailPhoto;
+			sourceTree = "<group>";
+		};
+		A07CA762287CD38900F5076D /* FavoriteProducts */ = {
+			isa = PBXGroup;
+			children = (
+				A07CA763287CD39F00F5076D /* FavoriteProductsVC.swift */,
+			);
+			path = FavoriteProducts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,10 +453,14 @@
 				A0633C102878C88400F0CB8F /* DashboardVC.swift in Sources */,
 				A0EA6963287B831400504073 /* Date+Extension.swift in Sources */,
 				A0633C482878CC7800F0CB8F /* DashboardView.swift in Sources */,
+				A07CA764287CD39F00F5076D /* FavoriteProductsVC.swift in Sources */,
+				A07CA75D287CC1D200F5076D /* ProductDetailPhotoVC.swift in Sources */,
+				A07CA761287CD31800F5076D /* UIImage+Extension.swift in Sources */,
 				A0633C512878D2BC00F0CB8F /* ProductCardView.swift in Sources */,
 				A0633C0C2878C88400F0CB8F /* AppDelegate.swift in Sources */,
 				A0633C402878C92E00F0CB8F /* MainCoordinator.swift in Sources */,
 				A01796FB287A250600E54AD8 /* ProductModel.swift in Sources */,
+				A07CA75F287CD14F00F5076D /* TabBarController.swift in Sources */,
 				A07CA756287C0BDB00F5076D /* DashboardCollectionHeaderView.swift in Sources */,
 				A0633C0E2878C88400F0CB8F /* SceneDelegate.swift in Sources */,
 				A0633C4D2878D17100F0CB8F /* ProductCollectionViewCell.swift in Sources */,
