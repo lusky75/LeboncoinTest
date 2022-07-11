@@ -24,6 +24,8 @@ class DashboardVC: UIViewController {
 
     override func viewDidLoad() {
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         super.viewDidLoad()
         
         view.backgroundColor = .white
@@ -223,7 +225,12 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 dashboardView?.categoriesCollectionView.reloadData()
             })
         } else {
-            coordinator?.productDetail = productsViewModel?.listOfProducts[indexPath.row]
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            if productsViewModel!.isFiltered {
+                coordinator?.productDetail = productsViewModel?.listOfFilteredProducts[indexPath.row]
+            } else {
+                coordinator?.productDetail = productsViewModel?.listOfProducts[indexPath.row]
+            }
             coordinator?.navigateToProductDetail()
         }
     }

@@ -35,7 +35,7 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         categoryView.addSubview(categoryLabel)
         
         NSLayoutConstraint.activate([
-            categoryView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            categoryView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             categoryView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
             categoryView.heightAnchor.constraint(equalToConstant: 30),
             

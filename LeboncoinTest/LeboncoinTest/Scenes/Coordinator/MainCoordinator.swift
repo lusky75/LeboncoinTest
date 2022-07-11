@@ -12,13 +12,18 @@ class MainCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
+    /*
+     productDetail takes the content of the selected product. The content will be used at ProductDetailVC
+     */
     var productDetail: Product?
 
     init(navigationController: UINavigationController) {
-        print("init navigationController\(navigationController)")
         self.navigationController = navigationController
     }
 
+    /*
+     the method start will define the root ViewController of Coordinator as DashboardVC
+     */
     func start() {
         let dashboardVC = DashboardVC()
         dashboardVC.coordinator = self
@@ -26,7 +31,6 @@ class MainCoordinator: Coordinator {
     }
     
     func navigateToProductDetail() {
-        
         print("navigate to product detail: \(String(describing: productDetail))")
         let productDetailVC = ProductDetailVC()
         productDetailVC.coordinator = self
