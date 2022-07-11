@@ -20,8 +20,6 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        
-        print("start")
         let dashboardVC = DashboardVC()
         dashboardVC.coordinator = self
         self.navigationController.pushViewController(dashboardVC, animated: false)

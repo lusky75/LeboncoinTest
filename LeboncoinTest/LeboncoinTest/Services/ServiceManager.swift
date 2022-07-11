@@ -30,13 +30,14 @@ enum NetworkError: Error {
 
 
 struct ServicesAPI {
-    static var listingProducts: String = "/listing.json"
-    
-    static var productCategories: String = "/categories.json"
     
     static let host: String = "https://raw.githubusercontent.com"
     
     static let basePath: String = "/leboncoin/paperclip/master"
+    
+    static var listingProducts: String = "/listing.json"
+    
+    static var productCategories: String = "/categories.json"
     
 }
 

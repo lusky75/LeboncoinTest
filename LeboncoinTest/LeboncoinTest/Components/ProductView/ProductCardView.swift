@@ -35,7 +35,7 @@ class ProductCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
         label.textColor = .black
-        label.font = UIFont.setDemiBoldFont(size: 13)
+        label.font = UIFont.setDemiBoldFont(size: 14)
         return label
     }()
     
@@ -45,7 +45,7 @@ class ProductCardView: UIView {
         label.text = ""
         label.textColor = .gray
         label.numberOfLines = 0
-        label.font = UIFont.setAppFont(size: 12)
+        label.font = UIFont.setAppFont(size: 14)
         return label
     }()
     
@@ -53,7 +53,7 @@ class ProductCardView: UIView {
         let view: UIView = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
-        view.backgroundColor = UIColor.orange.withAlphaComponent(0.2)
+        view.backgroundColor = UIColor.orange.withAlphaComponent(0.15)
         view.isHidden = true
         return view
     }()
@@ -61,10 +61,10 @@ class ProductCardView: UIView {
     var urgentProductLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Urgent"
+        label.text = "Vente urgente"
         label.textColor = .orange
         label.numberOfLines = 0
-        label.font = UIFont.setAppFont(size: 10)
+        label.font = UIFont.setAppFont(size: 11)
         return label
     }()
 

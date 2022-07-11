@@ -22,4 +22,10 @@ struct Product: Codable {
     var creation_date: String
     var is_urgent: Bool
     var siret: String?
+    
+    var creation_datetime: TimeInterval?
+    
+    mutating func updateCreationDatetime(datetime: TimeInterval) {
+        creation_datetime = datetime
+    }
 }
