@@ -26,6 +26,11 @@ class DashboardVC: UIViewController {
         
         super.viewDidLoad()
         
+        /*
+         accessibilityIdentifier is used for UI unit tests
+        */
+        view.accessibilityIdentifier = Constants.AccessibilityIdentifier.dashboard
+        
         view.backgroundColor = .white
         
         setupDashboardView()

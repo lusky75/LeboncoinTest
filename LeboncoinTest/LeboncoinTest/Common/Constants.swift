@@ -12,4 +12,14 @@ struct Constants {
     struct ProductDetailView {
         static let scrollBottomSpacing: CGFloat = 50
     }
+    
+    struct AccessibilityIdentifier {
+        static let dashboard = "DashboardView"
+        static let favoriteProducts = "FavoriteProductsView"
+        static let productDetail = "ProductDetailView"
+        static let productDetailPhoto = "ProductDetailPhotoView"
+        
+        static let categoriesCollectionView = "CategoriesCollectionView"
+        static let productsCollectionView = "ProductsCollectionView"
+    }
 }

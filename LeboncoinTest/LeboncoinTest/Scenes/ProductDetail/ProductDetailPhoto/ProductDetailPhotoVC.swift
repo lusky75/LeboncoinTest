@@ -20,6 +20,11 @@ class ProductDetailPhotoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+         accessibilityIdentifier is used for UI unit tests
+        */
+        view.accessibilityIdentifier = Constants.AccessibilityIdentifier.productDetailPhoto
 
         view.backgroundColor = .white
         // setup navigationBar title and image

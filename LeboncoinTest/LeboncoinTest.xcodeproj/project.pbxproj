@@ -170,7 +170,6 @@
 			children = (
 				A0633C492878CDA100F0CB8F /* Application */,
 				A0633C522878D66300F0CB8F /* Common */,
-				A0633C4E2878D29B00F0CB8F /* Components */,
 				A0633C562878DCAE00F0CB8F /* Models */,
 				A01796F6287A220C00E54AD8 /* Services */,
 				A0633C3B2878C89B00F0CB8F /* Scenes */,
@@ -199,9 +198,7 @@
 		A0633C3B2878C89B00F0CB8F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A07CA76C287CEE9C00F5076D /* BaseView.swift */,
 				A07CA75E287CD14F00F5076D /* TabBarController.swift */,
-				A07CA765287CEA3800F5076D /* BaseViewController.swift */,
 				A0633C3C2878C8D800F0CB8F /* Coordinator */,
 				A0633C442878CBC900F0CB8F /* ProductDetail */,
 				A0633C432878CB7B00F0CB8F /* Dashboard */,
@@ -289,6 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				A07CA759287C76B000F5076D /* Constants.swift */,
+				A07CA775287DAC0400F5076D /* BaseElements */,
+				A0633C4E2878D29B00F0CB8F /* Components */,
 				A0633C532878D67400F0CB8F /* Extensions */,
 			);
 			path = Common;
@@ -344,6 +343,15 @@
 				A07CA76A287CED7C00F5076D /* FavoriteProductsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A07CA775287DAC0400F5076D /* BaseElements */ = {
+			isa = PBXGroup;
+			children = (
+				A07CA76C287CEE9C00F5076D /* BaseView.swift */,
+				A07CA765287CEA3800F5076D /* BaseViewController.swift */,
+			);
+			path = BaseElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

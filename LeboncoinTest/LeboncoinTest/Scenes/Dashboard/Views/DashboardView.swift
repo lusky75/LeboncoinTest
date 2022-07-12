@@ -22,6 +22,8 @@ class DashboardView: BaseView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.tag = 1
+        
+        collectionView.accessibilityIdentifier = Constants.AccessibilityIdentifier.categoriesCollectionView
         return collectionView
     }()
     
@@ -37,6 +39,8 @@ class DashboardView: BaseView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.tag = 2
+        
+        collectionView.accessibilityIdentifier = Constants.AccessibilityIdentifier.productsCollectionView
         return collectionView
     }()
     

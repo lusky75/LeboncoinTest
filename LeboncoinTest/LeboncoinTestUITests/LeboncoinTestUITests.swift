@@ -22,20 +22,63 @@ class LeboncoinTestUITests: XCTestCase {
         self.app.launch()
     }
     
-    func test() throws {
+    // MARK: - Tests
+
+    /*
+     Make sure if app is displaying Dashboard's screen
+     */
+    func testDashboardView() {
+        XCTAssertTrue(app.isDisplayingDashboardView)
+    }
+    
+    func testProductSelectACategoryFilter() {
+        XCTAssertTrue(app.isDisplayingDashboardView)
+        XCTAssertTrue(app.collectionViews["CategoriesCollectionView"].exists)
+        app.collectionViews["CategoriesCollectionView"].cells.element(boundBy:0).tap()
+    }
+    
+    func testProductDetail() {
+        XCTAssertTrue(app.isDisplayingDashboardView)
+        XCTAssertTrue(app.collectionViews["ProductsCollectionView"].exists)
+        app.collectionViews["ProductsCollectionView"].cells.element(boundBy:0).tap()
+        //print("ok ok: \(app.collectionViews)")
+        //self.app.collectionViews["a"].tap()
+        //self.app.collectionViews.element.tap()
+        //XCTAssertTrue(app.isDisplayingProductDetailView)
+    }
+    
+    
+    /*
+     Tap each element from TabBar
+     and make sure if app is displaying FavoriteProducts' screen
+     */
+    func testFavoriteProductsView() {
+        self.app.launch()
+        self.app.tabBars.element.tap()
         
+        // Make sure we're displaying FavoriteProducts
+        XCTAssertTrue(app.isDisplayingFavoriteProductsView)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+}
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+extension XCUIApplication {
+    var isDisplayingDashboardView: Bool {
+        return otherElements["DashboardView"].exists
+    }
+    
+    var isDisplayingFavoriteProductsView: Bool {
+        return otherElements["FavoriteProductsView"].exists
+    }
+    
+    var isDisplayingProductDetailView: Bool {
+        return otherElements["ProductDetailView"].exists
+    }
+    
+    var isDisplayingProductDetailPhotoView: Bool {
+        return otherElements["ProductDetailPhotoView"].exists
     }
 }
