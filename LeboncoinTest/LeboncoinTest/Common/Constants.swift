@@ -24,6 +24,7 @@ struct Constants {
         
         struct ImageView {
             static let productDetail = "ProductDetailImageView"
+            static let favorite = "ProductDetailFavoriteImageView"
         }
     }
 }

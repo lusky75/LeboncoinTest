@@ -28,6 +28,7 @@ class ProductDetailView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "favorite_icon")?.withRenderingMode(.alwaysTemplate)
         imageView.contentMode = .scaleAspectFit
+        imageView.accessibilityIdentifier = Constants.AccessibilityIdentifier.ImageView.favorite
         return imageView
     }()
     
@@ -37,7 +38,7 @@ class ProductDetailView: UIView {
         imageView.image = UIImage(named: "")
         imageView.clipsToBounds = true
         imageView.accessibilityIdentifier = Constants.AccessibilityIdentifier.ImageView.productDetail
-        //imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     

@@ -57,4 +57,8 @@ class Favorites: ObservableObject {
         }
         defaults.synchronize()
     }
+    
+    deinit {
+        
+    }
 }

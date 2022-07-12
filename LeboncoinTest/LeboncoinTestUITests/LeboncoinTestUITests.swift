@@ -45,6 +45,18 @@ class LeboncoinTestUITests: XCTestCase {
         XCTAssertTrue(app.images["ProductDetailImageView"].exists)
     }
     
+    func testAddProductToFavorite() {
+        app.collectionViews["ProductsCollectionView"].cells.element(boundBy: 0).tap()
+        
+        XCTAssertTrue(app.images["ProductDetailFavoriteImageView"].exists)
+        app.images["ProductDetailFavoriteImageView"].tap()
+        
+        app.buttons.element.tap()
+        
+        app.tabBars.element.tap()
+        
+    }
+    
     func testProductDetailPhoto() {
         app.collectionViews["ProductsCollectionView"].cells.element(boundBy: 0).tap()
         
