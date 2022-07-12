@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Codable {
+struct CategoryModel: Codable {
     var id: Int64
     var name: String
 }

@@ -114,7 +114,7 @@ class ProductDetailView: UIView {
         scrollView.addSubview(productDetailDescriptionLabel)
         scrollView.addSubview(productDetailDescriptionContentLabel)
         
-        scrollView.addSubview(backButton)
+        self.addSubview(backButton)
                 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -126,7 +126,7 @@ class ProductDetailView: UIView {
             productDetailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             productDetailImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50),
+            backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 40),
             backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 40),
             backButton.heightAnchor.constraint(equalToConstant: 40),

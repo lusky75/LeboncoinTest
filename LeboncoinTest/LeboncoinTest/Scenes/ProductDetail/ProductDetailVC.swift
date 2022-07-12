@@ -25,6 +25,10 @@ class ProductDetailVC: UIViewController {
         setupProductDetailContent()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLayoutSubviews() {
         productDetailView!.scrollView.contentSize = CGSize(width: view.frame.width, height: productDetailView!.productDetailDescriptionContentLabel.frame.origin.y + productDetailView!.productDetailDescriptionContentLabel.frame.height + Constants.ProductDetailView.scrollBottomSpacing)
     }
@@ -76,6 +80,7 @@ class ProductDetailVC: UIViewController {
     }
     
     @objc func navigateToProductDetailPhotoAction() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         coordinator?.navigateToProductDetailPhoto()
     }
     

@@ -114,7 +114,7 @@ class ServicesAPIManager: NSObject, URLSessionDelegate {
         task.resume()
     }
     
-    func fetchProductCategories(url: Endpoint, completionHandler: @escaping ([Category]?, NetworkError?) -> Void) {
+    func fetchProductCategories(url: Endpoint, completionHandler: @escaping ([CategoryModel]?, NetworkError?) -> Void) {
         let configuration = URLSessionConfiguration.default
         
         guard let endpoint = URL(string: url.source) else {
@@ -148,7 +148,7 @@ class ServicesAPIManager: NSObject, URLSessionDelegate {
             }
             let decoder = JSONDecoder()
             do {
-                let responseJSON = try decoder.decode([Category].self, from: data)
+                let responseJSON = try decoder.decode([CategoryModel].self, from: data)
                 completionHandler(responseJSON, nil)
             } catch {
                 completionHandler(nil,

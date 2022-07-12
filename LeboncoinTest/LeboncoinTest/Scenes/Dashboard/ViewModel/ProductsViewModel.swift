@@ -15,7 +15,7 @@ protocol ProductsViewModelProtocol {
     
     var listOfFilteredProducts: [Product] { get set }
     
-    var listOfCategories: [Category] { get set }
+    var listOfCategories: [CategoryModel] { get set }
     
     var listOfSelectedCategories: [Bool] { get set }
     
@@ -34,7 +34,7 @@ class ProductsViewModel: ProductsViewModelProtocol {
     
     var listOfFilteredProducts: [Product] = []
     
-    var listOfCategories: [Category] = []
+    var listOfCategories: [CategoryModel] = []
     
     var listOfSelectedCategories: [Bool] = []
     
