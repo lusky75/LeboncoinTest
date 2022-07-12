@@ -10,10 +10,25 @@ import UIKit
 
 class ProductDetailView: UIView {
     
+    var backButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "back_button_icon"), for: .normal)
+        return button
+    }()
+    
     var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
+    }()
+    
+    var favoriteProductImageView: UIImageView = {
+        let imageView: UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "favorite_icon")?.withRenderingMode(.alwaysTemplate)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     var productDetailImageView: UIImageView = {
@@ -86,9 +101,10 @@ class ProductDetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        
         addSubview(scrollView)
         scrollView.addSubview(productDetailImageView)
+        
+        scrollView.addSubview(favoriteProductImageView)
         scrollView.addSubview(productDetailTitleLabel)
         scrollView.addSubview(productDetailPriceLabel)
         scrollView.addSubview(productDetailCategoryLabel)
@@ -97,6 +113,8 @@ class ProductDetailView: UIView {
         
         scrollView.addSubview(productDetailDescriptionLabel)
         scrollView.addSubview(productDetailDescriptionContentLabel)
+        
+        scrollView.addSubview(backButton)
                 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -108,9 +126,18 @@ class ProductDetailView: UIView {
             productDetailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             productDetailImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
+            backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50),
+            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 40),
+            backButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            favoriteProductImageView.centerYAnchor.constraint(equalTo: productDetailPriceLabel.centerYAnchor),
+            favoriteProductImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            favoriteProductImageView.widthAnchor.constraint(equalToConstant: 30),
+            
             productDetailTitleLabel.topAnchor.constraint(equalTo: productDetailImageView.bottomAnchor, constant: 20),
             productDetailTitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            productDetailTitleLabel.trailingAnchor.constraint(equalTo: productDetailImageView.trailingAnchor),
+            productDetailTitleLabel.trailingAnchor.constraint(equalTo: productDetailImageView.trailingAnchor, constant: -20),
             
             productDetailPriceLabel.topAnchor.constraint(equalTo: productDetailTitleLabel.bottomAnchor, constant: 10),
             productDetailPriceLabel.leadingAnchor.constraint(equalTo: productDetailTitleLabel.leadingAnchor),

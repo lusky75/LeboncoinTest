@@ -37,7 +37,6 @@ class MainCoordinator: Coordinator {
     func navigateToProductDetail() {
         let productDetailVC = ProductDetailVC()
         productDetailVC.coordinator = self
-        //self.navigationController.navigationItem.title = "Dashboard"
         self.navigationController.pushViewController(productDetailVC, animated: true)
         
     }
@@ -46,6 +45,11 @@ class MainCoordinator: Coordinator {
         let productDetailPhotoVC = ProductDetailPhotoVC()
         productDetailPhotoVC.coordinator = self
         self.navigationController.pushViewController(productDetailPhotoVC, animated: true)
+    }
+    
+    func previousPage() {
+        self.navigationController.viewDidLoad()
+        self.navigationController.popViewController(animated: true)
     }
 }
 

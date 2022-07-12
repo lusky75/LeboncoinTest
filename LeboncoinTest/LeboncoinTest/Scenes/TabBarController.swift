@@ -44,30 +44,20 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         dashboardVC.coordinator = coordinator
         
         let favoriteProductsVC = FavoriteProductsVC()
-        
-        
-        let dashboardSelectedImageName: String = "dashboard_icon"
-        let favoriteProductSelectedImageName: String = "favorite_icon"
+        favoriteProductsVC.coordinator = coordinator
 
         var dashboardImage = UIImage(named: "dashboard_icon")
-        var dashboardImageSelected = UIImage(named: dashboardSelectedImageName)
         
         var favoriteImage: UIImage? = UIImage(named: "favorite_icon")
-        var favoriteImageSelected: UIImage? = UIImage(named: favoriteProductSelectedImageName)
         
         let dimension: CGFloat = 25
         let framework: UIImage.ResizeFramework = .coreGraphics
         dashboardImage = dashboardImage?.resizeWithScaleAspectFitMode(to: dimension, resizeFramework: framework)
-        dashboardImageSelected = dashboardImageSelected?.resizeWithScaleAspectFitMode(to: dimension, resizeFramework: framework)
-        
         favoriteImage = favoriteImage?.resizeWithScaleAspectFitMode(to: dimension, resizeFramework: framework)
-        favoriteImageSelected = favoriteImageSelected?.resizeWithScaleAspectFitMode(to: dimension, resizeFramework: framework)
         
-        
- 
-        let item1 = UITabBarItem(title: "Dashboard", image: dashboardImage?.withRenderingMode(.alwaysTemplate), selectedImage: dashboardImageSelected?.withRenderingMode(.alwaysTemplate))
+        let item1 = UITabBarItem(title: "Dashboard", image: dashboardImage, selectedImage: dashboardImage)
         item1.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-        let item2 = UITabBarItem(title: "Favoris", image: favoriteImage?.withRenderingMode(.alwaysTemplate), selectedImage: favoriteImageSelected?.withRenderingMode(.alwaysTemplate))
+        let item2 = UITabBarItem(title: "Favoris", image: favoriteImage, selectedImage: favoriteImage)
         item2.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         
         

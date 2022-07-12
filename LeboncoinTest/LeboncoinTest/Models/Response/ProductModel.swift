@@ -12,7 +12,11 @@ struct ImageURL: Codable {
     var thumb: String?
 }
 
-struct Product: Codable {
+struct Product: Codable, Hashable {
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id: Int64
     var category_id: Int64
     var title: String
@@ -25,7 +29,7 @@ struct Product: Codable {
     
     var creation_datetime: TimeInterval?
     
-    mutating func updateCreationDatetime(datetime: TimeInterval) {
-        creation_datetime = datetime
+    func hash(into hasher: inout Hasher) {
+        //
     }
 }

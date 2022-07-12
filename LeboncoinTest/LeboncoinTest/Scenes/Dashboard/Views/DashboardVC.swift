@@ -52,6 +52,8 @@ class DashboardVC: UIViewController {
                 
         view.addSubview(dashboardView!)
         
+        dashboardView?.viewTitleLabel.text = "Liste des produits"
+        
         addButtonTarget()
         
         setupProductsCollectionView()

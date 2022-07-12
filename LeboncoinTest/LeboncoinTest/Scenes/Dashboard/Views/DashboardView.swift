@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DashboardView: UIView {
+class DashboardView: BaseView {
     
     var categoriesCollectionView: UICollectionView = {
         var collectionFlow: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -53,8 +53,8 @@ class DashboardView: UIView {
             categoriesCollectionView.heightAnchor.constraint(equalToConstant: 50),
             
             collectionView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 10),
-            collectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            collectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
