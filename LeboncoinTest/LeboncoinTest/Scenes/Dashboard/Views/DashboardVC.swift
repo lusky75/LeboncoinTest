@@ -276,7 +276,13 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         if collectionView.tag == 1 {
             return CGSize(width: 0, height: 0)
         }
-        return CGSize(width: collectionView.frame.width, height: 30)
+        let height: CGFloat
+        if collectionView.frame.width > 600 {
+            height = 50
+        } else {
+            height = 30
+        }
+        return CGSize(width: collectionView.frame.width, height: height)
     }
     
 }

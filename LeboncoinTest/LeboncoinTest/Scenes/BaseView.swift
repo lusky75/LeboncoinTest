@@ -28,6 +28,9 @@ class BaseView: UIView {
             viewTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             viewTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         ])
+        if self.frame.width > 600 {
+            //viewTitleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        }
     }
     
     required init?(coder: NSCoder) {

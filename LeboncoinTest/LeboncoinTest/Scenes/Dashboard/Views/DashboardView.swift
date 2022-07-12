@@ -47,7 +47,7 @@ class DashboardView: BaseView {
         addSubview(collectionView)
                 
         NSLayoutConstraint.activate([
-            categoriesCollectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
+            categoriesCollectionView.topAnchor.constraint(equalTo: self.viewTitleLabel.bottomAnchor, constant: 10),
             categoriesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             categoriesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             categoriesCollectionView.heightAnchor.constraint(equalToConstant: 50),
