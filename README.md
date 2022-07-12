@@ -20,12 +20,12 @@ Pined product are displayed at FavoriteProducts screen.
 
 ------------------
 
-Les assets, appDelegate, et LaunchScreen: Application/
+Les assets, AppDelegate/SceneDelegate, et LaunchScreen: Application/
 
-Les composants, extensions, et constants: Common/
+Les components, extensions, et constants: Common/
 
 Les models: Models/Response/
 
-Les vues, controlleurs: Scenes/
+Les views, viewModels, controllers : Scenes/
 
 Les services API: Services/ServiceManager.swift
