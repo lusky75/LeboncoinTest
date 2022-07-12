@@ -21,7 +21,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func setupTabBarColor() {
         
         self.tabBar.barTintColor = .white
-        //isTranslucent must be set to false cause the barTintColor of tabBar is in low opacity
+        
+        // isTranslucent must be set to false cause the barTintColor of tabBar is in low opacity
         self.tabBar.isTranslucent = false
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
@@ -33,9 +34,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     /*
-     The function return an array of viewController. Each viewController will be related to an item of the TabBarController.
-     Each item have icon and selected icon which is green. and the title is set to white at normal state and green at selected state
-     Then adjust the size and positions of item title and icon.
+     The method return an array of viewController. Each viewController will be related to an item of the TabBarController.
+     Each selected item takes tintColor: orange.
      */
     func setupTabBarController(coordinator: MainCoordinator) -> [UIViewController] {
         self.tabBar.tintColor = .orange

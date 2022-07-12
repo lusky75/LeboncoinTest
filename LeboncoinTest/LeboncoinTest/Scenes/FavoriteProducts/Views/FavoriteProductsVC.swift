@@ -51,8 +51,6 @@ class FavoriteProductsVC: UIViewController {
         favoriteProductsView?.collectionView.delegate = self
         favoriteProductsView?.collectionView.dataSource = self
         favoriteProductsView?.collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.cellIdentifier)
-        
-        //dashboardView?.collectionView.register(DashboardCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DashboardCollectionHeaderView.cellIdentifier)
     }
 
 }

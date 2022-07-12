@@ -41,7 +41,9 @@ struct ServicesAPI {
     
 }
 
-
+/*
+ Endpoint is used to get the url or endpoint of a request
+ */
 enum Endpoint {
     case listingProducts
     case productCategories
@@ -69,6 +71,10 @@ class ServicesAPIManager: NSObject, URLSessionDelegate {
     
     static let shared = ServicesAPIManager()
     
+    /*
+     fetchProductsList fetch list of products on completionHandler
+     If an error occurs, it will be displayed as NetworkError
+     */
     func fetchProductsList(url: Endpoint, completionHandler: @escaping ([Product]?, NetworkError?) -> Void) {
         let configuration = URLSessionConfiguration.default
         
@@ -114,6 +120,10 @@ class ServicesAPIManager: NSObject, URLSessionDelegate {
         task.resume()
     }
     
+    /*
+     fetchProductCategories fetch list of categories on completionHandler
+     If an error occurs, it will be displayed as NetworkError
+     */
     func fetchProductCategories(url: Endpoint, completionHandler: @escaping ([CategoryModel]?, NetworkError?) -> Void) {
         let configuration = URLSessionConfiguration.default
         

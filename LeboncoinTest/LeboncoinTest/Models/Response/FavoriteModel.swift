@@ -50,6 +50,9 @@ class Favorites: ObservableObject {
         save()
     }
 
+    /*
+     Encode self.products to save data at UserDefault forKey: "listOfFavoriteProducts"
+     */
     func save() {
         let encoder = PropertyListEncoder()
         if let encoded = try? encoder.encode(self.products) {

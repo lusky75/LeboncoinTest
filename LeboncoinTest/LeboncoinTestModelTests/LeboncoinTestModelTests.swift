@@ -40,6 +40,9 @@ class LeboncoinTestModelTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
     
+    /*
+     Check equalities of required fields for productModel
+     */
     func testProductModel() {
         XCTAssertEqual(1461267313, productModel.id)
         XCTAssertEqual(4, productModel.category_id)
@@ -50,11 +53,17 @@ class LeboncoinTestModelTests: XCTestCase {
         XCTAssertEqual(false, productModel.is_urgent)
     }
     
+    /*
+     Check equalities of required fields for categoryModel
+     */
     func testCategoryModel() {
         XCTAssertEqual(1, categoryModel.id)
         XCTAssertEqual("Véhicule", categoryModel.name)
     }
     
+    /*
+     Test favoritesModel (add, remove and check if products are unique)
+     */
     func testFavoriteModel() {
         let newProduct: Product = Product(id: 1461267313, category_id: 4, title: "title", description: "description", price: 140.0, creation_date: "2019-11-05T15:56:59+0000", is_urgent: false)
         

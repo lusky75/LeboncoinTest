@@ -31,12 +31,18 @@ class LeboncoinTestUITests: XCTestCase {
         XCTAssertTrue(app.isDisplayingDashboardView)
     }
     
+    /*
+     Check if categoriesCollectionView exists and then select the first one
+     */
     func testProductSelectACategoryFilter() {
         XCTAssertTrue(app.isDisplayingDashboardView)
         XCTAssertTrue(app.collectionViews["CategoriesCollectionView"].exists)
         app.collectionViews["CategoriesCollectionView"].cells.element(boundBy:0).tap()
     }
     
+    /*
+     Check if ProductDetail's view exists
+     */
     func testProductDetail() {
         XCTAssertTrue(app.isDisplayingDashboardView)
         XCTAssertTrue(app.collectionViews["ProductsCollectionView"].exists)
@@ -45,6 +51,9 @@ class LeboncoinTestUITests: XCTestCase {
         XCTAssertTrue(app.images["ProductDetailImageView"].exists)
     }
     
+    /*
+     Open a product, tap on favorite image and then navigate to FavoriteProducts screen to check it
+     */
     func testAddProductToFavorite() {
         app.collectionViews["ProductsCollectionView"].cells.element(boundBy: 0).tap()
         
@@ -57,6 +66,9 @@ class LeboncoinTestUITests: XCTestCase {
         
     }
     
+    /*
+     tap first elem from productCollectionView then tap on picture to navigate to ProductDetailPhoto
+     */
     func testProductDetailPhoto() {
         app.collectionViews["ProductsCollectionView"].cells.element(boundBy: 0).tap()
         
