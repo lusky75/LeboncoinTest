@@ -13,10 +13,10 @@ Les produits mis en favoris seront donc affichés dans Favoris.
 (English)
 At launch screen, initiate Dashboard page.
 At Dashboard screen, if there is no products or categories. It requests list of products and categories.
-Products can be sorted by selected categories and then it reload the data in order of (is urgent) then sorted by date.
+Products can be sorted by selected categories and then it reload the data in order of (if it's urgent) then sorted by date.
 
 Each product may contain a redirection to ProductDetail. It allows to display the content of product and of course pin the selected product to favorite.
-Pined product are displayed at FavoriteProducts screen.
+Pined products are displayed at FavoriteProducts screen.
 
 ------------------
 
