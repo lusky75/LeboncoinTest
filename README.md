@@ -20,12 +20,18 @@ Pined product are displayed at FavoriteProducts screen.
 
 ------------------
 
-Les assets, AppDelegate/SceneDelegate, et LaunchScreen: Application/
+Concernant le projet: 
+- Les assets, AppDelegate/SceneDelegate, et LaunchScreen: Application/
 
-Les components, extensions, et constants: Common/
+- Les components, extensions, et constants: Common/
 
-Les models: Models/Response/
+- Les models: Models/Response/
 
-Les views, viewModels, controllers : Scenes/
+- Les views, viewModels, controllers : Scenes/
 
-Les services API: Services/ServiceManager.swift
+- Les services API: Services/ServiceManager.swift
+
+
+Les Unit Tests : LeboncoinTestModelTests/
+
+Les UI Tests : LeboncoinTestUITests/
