@@ -36,6 +36,7 @@ class ProductDetailView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "")
         imageView.clipsToBounds = true
+        imageView.accessibilityIdentifier = Constants.AccessibilityIdentifier.ImageView.productDetail
         //imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -125,6 +126,7 @@ class ProductDetailView: UIView {
             productDetailImageView.topAnchor.constraint(equalTo: self.topAnchor),
             productDetailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             productDetailImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            productDetailImageView.heightAnchor.constraint(equalTo: productDetailImageView.widthAnchor),
             
             backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 40),
             backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),

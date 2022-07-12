@@ -47,6 +47,11 @@
                BlueprintName = "LeboncoinTestUITests"
                ReferencedContainer = "container:LeboncoinTest.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "LeboncoinTestUITests/testProductDetailPhoto()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

@@ -21,5 +21,9 @@ struct Constants {
         
         static let categoriesCollectionView = "CategoriesCollectionView"
         static let productsCollectionView = "ProductsCollectionView"
+        
+        struct ImageView {
+            static let productDetail = "ProductDetailImageView"
+        }
     }
 }

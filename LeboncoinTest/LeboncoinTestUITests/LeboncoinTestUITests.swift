@@ -40,13 +40,17 @@ class LeboncoinTestUITests: XCTestCase {
     func testProductDetail() {
         XCTAssertTrue(app.isDisplayingDashboardView)
         XCTAssertTrue(app.collectionViews["ProductsCollectionView"].exists)
-        app.collectionViews["ProductsCollectionView"].cells.element(boundBy:0).tap()
-        //print("ok ok: \(app.collectionViews)")
-        //self.app.collectionViews["a"].tap()
-        //self.app.collectionViews.element.tap()
-        //XCTAssertTrue(app.isDisplayingProductDetailView)
+        app.collectionViews["ProductsCollectionView"].cells.element(boundBy: 0).tap()
+
+        XCTAssertTrue(app.images["ProductDetailImageView"].exists)
     }
     
+    func testProductDetailPhoto() {
+        app.collectionViews["ProductsCollectionView"].cells.element(boundBy: 0).tap()
+        
+        app.images["ProductDetailImageView"].tap()
+        XCTAssertTrue(app.isDisplayingProductDetailPhotoView)
+    }
     
     /*
      Tap each element from TabBar
@@ -61,7 +65,6 @@ class LeboncoinTestUITests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 }
 
