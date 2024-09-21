@@ -17,21 +17,3 @@ Products can be sorted by selected categories and then it reload the data in ord
 
 Each product may contain a redirection to ProductDetail. It allows to display the content of product and of course pin the selected product to favorite.
 Pined products are displayed at FavoriteProducts screen.
-
-------------------
-
-Concernant le projet: 
-- Les assets, AppDelegate/SceneDelegate, et LaunchScreen: Application/
-
-- Les components, extensions, et constants: Common/
-
-- Les models: Models/Response/
-
-- Les views, viewModels, controllers : Scenes/
-
-- Les services API: Services/ServiceManager.swift
-
-
-Les Unit Tests : LeboncoinTestModelTests/
-
-Les UI Tests : LeboncoinTestUITests/
