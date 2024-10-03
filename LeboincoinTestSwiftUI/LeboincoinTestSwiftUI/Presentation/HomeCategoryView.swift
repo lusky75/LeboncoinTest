@@ -14,7 +14,7 @@ struct HomeCategoryView: View {
     var body: some View {
         HStack {
             Text(title.uppercased())
-                .font(.system(size: 14)) // UIFont.setAppFont(size: 14)
+                .font(.system(size: 14))
                 .foregroundColor(selected ? Color.tintColor : Color.gray700Color)
                 .padding(.horizontal, 15)
         }

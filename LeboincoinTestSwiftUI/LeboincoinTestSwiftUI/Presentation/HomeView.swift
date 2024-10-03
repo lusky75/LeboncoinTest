@@ -42,13 +42,14 @@ struct HomeView: View {
             ScrollView(.horizontal) {
                 HStack(spacing: .homeCategoryViewSpacing) {
                     ForEach(categoryList, id: \.id) { category in
-                        HomeCategoryView(title: category.name, selected: self.viewModel.selectedCategory == category)
+                        HomeCategoryView(title: category.name, selected: self.viewModel.selectedCategory.contains(category))
                             .onTapGesture {
-                                if self.viewModel.selectedCategory == category {
-                                    self.viewModel.selectedCategory = nil
+                                if self.viewModel.selectedCategory.contains(category) {
+                                    self.viewModel.selectedCategory.removeAll(where: { $0 == category })
                                 } else {
-                                    self.viewModel.selectedCategory = category
+                                    self.viewModel.selectedCategory.append(category)
                                 }
+                                self.viewModel.getListing()
                             }
                     }
                 }

@@ -11,7 +11,7 @@ import Combine
 class HomeViewModel: ObservableObject {
     @Published public var categoryList: [Category]?
     @Published public var productList: [Product]?
-    @Published var selectedCategory: Category?
+    @Published var selectedCategory: [Category] = []
     
     private let homeService: HomeServiceProtocol
     
@@ -51,7 +51,7 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func getListing() {
+    func getListing() {
         homeService.getListing()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -72,8 +72,36 @@ class HomeViewModel: ObservableObject {
                 }
                 productList.sort(by: { $0.isUrgent && !$1.isUrgent })
                 self.productList = productList
+                
+                if !self.selectedCategory.isEmpty {
+                    self.filterProductsBySelectedCategory()
+                }
             })
             .store(in: &cancellables)
+    }
+    
+    private func filterProductsBySelectedCategory() {
+        guard let productList = productList,
+              let categoryList = categoryList,
+              !categoryList.isEmpty else {
+            return
+        }
+        self.productList?.removeAll()
+        var filteredProductList: [Product] = []
+        var productIsInCategory: Bool = false
+    
+        for product in productList {
+            productIsInCategory = false
+            for index in categoryList.indices {
+                if product.categoryId == categoryList[index].id && selectedCategory.contains(categoryList[index]) {
+                    productIsInCategory = true
+                }
+            }
+            if productIsInCategory == true {
+                filteredProductList.append(product)
+            }
+        }
+        self.productList = filteredProductList
     }
     
     private func getCategory(categoryId: Int) -> String? {
