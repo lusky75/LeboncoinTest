@@ -10,15 +10,74 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     
+    private let productColumnGrid = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack(alignment: .topLeading) {
+            VStack(alignment: .leading, spacing: 20) {
+                titleView
+                
+                categoryListScrollView
+                
+                productGridScrollView
+            }
         }
-        .padding()
         .onAppear(perform: onAppear)
+    }
+    
+    private var titleView: some View {
+        Text(viewModel.title)
+            .foregroundColor(.blackColor)
+            .font(Font.custom(.helveticaNeue75, size: 30))
+            .padding(.top, .homeTitlePaddingTop)
+            .padding(.leading, .homeTitlePaddingLeading)
+    }
+    
+    @ViewBuilder
+    private var categoryListScrollView: some View {
+        if let categoryList = viewModel.categoryList {
+            ScrollView(.horizontal) {
+                HStack(spacing: .homeCategoryViewSpacing) {
+                    ForEach(categoryList, id: \.id) { category in
+                        HomeCategoryView(title: category.name, selected: self.viewModel.selectedCategory == category)
+                            .onTapGesture {
+                                if self.viewModel.selectedCategory == category {
+                                    self.viewModel.selectedCategory = nil
+                                } else {
+                                    self.viewModel.selectedCategory = category
+                                }
+                            }
+                    }
+                }
+                .padding(.vertical, 10)
+            }
+            .padding(.leading, .homeTitlePaddingLeading)
+        }
+    }
+    
+    @ViewBuilder
+    private var productGridScrollView: some View {
+        ScrollView {
+            ZStack(alignment: .topLeading) {
+                productGridView
+                    .padding(.leading, 30)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var productGridView: some View {
+        if let productList = viewModel.productList {
+            LazyVGrid(columns: productColumnGrid, alignment: .leading, spacing: 20, pinnedViews: [], content: {
+                ForEach(productList, id: \.self) { product in
+                    ProductRowCard(viewModel: ProductRowCardViewModel(model: product))
+                }
+            })
+            .padding(.top, 10)
+        }
     }
 }
 

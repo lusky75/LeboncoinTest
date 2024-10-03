@@ -27,6 +27,15 @@
 		FB2EC9C12C9EEAB50040EC80 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9C02C9EEAB50040EC80 /* HomeService.swift */; };
 		FB2EC9C32C9EEBC00040EC80 /* Endpoint+HomeRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9C22C9EEBC00040EC80 /* Endpoint+HomeRows.swift */; };
 		FB2EC9CC2C9F30430040EC80 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9CB2C9F30430040EC80 /* Product.swift */; };
+		FB2EC9CE2C9F67ED0040EC80 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9CD2C9F67ED0040EC80 /* Category.swift */; };
+		FB2EC9D02C9F69F50040EC80 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9CF2C9F69F50040EC80 /* Color+Extension.swift */; };
+		FB2EC9D22C9F6ACF0040EC80 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9D12C9F6ACF0040EC80 /* CGFloat+Extension.swift */; };
+		FB2EC9D42C9F6CC40040EC80 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2EC9D32C9F6CC40040EC80 /* HomeCategoryView.swift */; };
+		FB997A7F2CAE675C008BB4B1 /* getListing.json in Resources */ = {isa = PBXBuildFile; fileRef = FB997A7E2CAE675C008BB4B1 /* getListing.json */; };
+		FB997A812CAE6775008BB4B1 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB997A802CAE6775008BB4B1 /* MockModel.swift */; };
+		FB997A862CAE6E30008BB4B1 /* ProductRowCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB997A852CAE6E30008BB4B1 /* ProductRowCardViewModel.swift */; };
+		FB997A882CAE6F57008BB4B1 /* ProductRowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB997A872CAE6F57008BB4B1 /* ProductRowCard.swift */; };
+		FB997A8B2CAE704D008BB4B1 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB997A8A2CAE704D008BB4B1 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +82,15 @@
 		FB2EC9C22C9EEBC00040EC80 /* Endpoint+HomeRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+HomeRows.swift"; sourceTree = "<group>"; };
 		FB2EC9C82C9F2C7B0040EC80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2EC9CB2C9F30430040EC80 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FB2EC9CD2C9F67ED0040EC80 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FB2EC9CF2C9F69F50040EC80 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		FB2EC9D12C9F6ACF0040EC80 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		FB2EC9D32C9F6CC40040EC80 /* HomeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
+		FB997A7E2CAE675C008BB4B1 /* getListing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getListing.json; path = ../../../../getListing.json; sourceTree = "<group>"; };
+		FB997A802CAE6775008BB4B1 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		FB997A852CAE6E30008BB4B1 /* ProductRowCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowCardViewModel.swift; sourceTree = "<group>"; };
+		FB997A872CAE6F57008BB4B1 /* ProductRowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowCard.swift; sourceTree = "<group>"; };
+		FB997A8A2CAE704D008BB4B1 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +144,7 @@
 				FB2EC9A12C9EE4910040EC80 /* Core */,
 				FB2EC9A22C9EE4AB0040EC80 /* Presentation */,
 				FB2EC9B72C9EE7DC0040EC80 /* Business Logic */,
+				FB997A7A2CAE66A7008BB4B1 /* Mocks */,
 				FB2EC9792C9EE39A0040EC80 /* Assets.xcassets */,
 				FB2EC97B2C9EE39A0040EC80 /* LeboincoinTestSwiftUI.entitlements */,
 				FB2EC97C2C9EE39A0040EC80 /* Preview Content */,
@@ -172,9 +191,12 @@
 		FB2EC9A22C9EE4AB0040EC80 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				FB2EC9752C9EE3990040EC80 /* LeboincoinTestSwiftUIApp.swift */,
+				FB997A892CAE7034008BB4B1 /* Common */,
+				FB997A822CAE6DF1008BB4B1 /* RowCard */,
 				FB2EC9772C9EE3990040EC80 /* HomeView.swift */,
 				FB2EC9BD2C9EEA370040EC80 /* HomeViewModel.swift */,
+				FB2EC9D32C9F6CC40040EC80 /* HomeCategoryView.swift */,
+				FB2EC9752C9EE3990040EC80 /* LeboincoinTestSwiftUIApp.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -205,6 +227,8 @@
 				FB2EC9AE2C9EE64D0040EC80 /* String+Extension.swift */,
 				FB2EC9B02C9EE6830040EC80 /* URL+Extension.swift */,
 				FB2EC9B52C9EE7870040EC80 /* Bundle+Extension.swift */,
+				FB2EC9CF2C9F69F50040EC80 /* Color+Extension.swift */,
+				FB2EC9D12C9F6ACF0040EC80 /* CGFloat+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,8 +264,35 @@
 			isa = PBXGroup;
 			children = (
 				FB2EC9CB2C9F30430040EC80 /* Product.swift */,
+				FB2EC9CD2C9F67ED0040EC80 /* Category.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FB997A7A2CAE66A7008BB4B1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FB997A7E2CAE675C008BB4B1 /* getListing.json */,
+				FB997A802CAE6775008BB4B1 /* MockModel.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FB997A822CAE6DF1008BB4B1 /* RowCard */ = {
+			isa = PBXGroup;
+			children = (
+				FB997A872CAE6F57008BB4B1 /* ProductRowCard.swift */,
+				FB997A852CAE6E30008BB4B1 /* ProductRowCardViewModel.swift */,
+			);
+			path = RowCard;
+			sourceTree = "<group>";
+		};
+		FB997A892CAE7034008BB4B1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FB997A8A2CAE704D008BB4B1 /* AsyncImageView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +401,7 @@
 			files = (
 				FB2EC97E2C9EE39A0040EC80 /* Preview Assets.xcassets in Resources */,
 				FB2EC97A2C9EE39A0040EC80 /* Assets.xcassets in Resources */,
+				FB997A7F2CAE675C008BB4B1 /* getListing.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,19 +426,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB997A8B2CAE704D008BB4B1 /* AsyncImageView.swift in Sources */,
 				FB2EC9C32C9EEBC00040EC80 /* Endpoint+HomeRows.swift in Sources */,
 				FB2EC9782C9EE3990040EC80 /* HomeView.swift in Sources */,
 				FB2EC9CC2C9F30430040EC80 /* Product.swift in Sources */,
+				FB997A882CAE6F57008BB4B1 /* ProductRowCard.swift in Sources */,
+				FB997A812CAE6775008BB4B1 /* MockModel.swift in Sources */,
 				FB2EC9B62C9EE7870040EC80 /* Bundle+Extension.swift in Sources */,
 				FB2EC9B12C9EE6830040EC80 /* URL+Extension.swift in Sources */,
+				FB2EC9D42C9F6CC40040EC80 /* HomeCategoryView.swift in Sources */,
 				FB2EC9AF2C9EE64D0040EC80 /* String+Extension.swift in Sources */,
 				FB2EC9AA2C9EE5650040EC80 /* NetworkerError.swift in Sources */,
+				FB2EC9CE2C9F67ED0040EC80 /* Category.swift in Sources */,
 				FB2EC9762C9EE3990040EC80 /* LeboincoinTestSwiftUIApp.swift in Sources */,
 				FB2EC9BA2C9EE7FC0040EC80 /* Endpoint+URL.swift in Sources */,
 				FB2EC9A82C9EE5270040EC80 /* Log.swift in Sources */,
+				FB997A862CAE6E30008BB4B1 /* ProductRowCardViewModel.swift in Sources */,
 				FB2EC9C12C9EEAB50040EC80 /* HomeService.swift in Sources */,
 				FB2EC9AC2C9EE60B0040EC80 /* NetworkStatus.swift in Sources */,
 				FB2EC9BC2C9EE8260040EC80 /* Endpoint.swift in Sources */,
+				FB2EC9D22C9F6ACF0040EC80 /* CGFloat+Extension.swift in Sources */,
+				FB2EC9D02C9F69F50040EC80 /* Color+Extension.swift in Sources */,
 				FB2EC9A52C9EE4E70040EC80 /* Networker.swift in Sources */,
 				FB2EC9BE2C9EEA370040EC80 /* HomeViewModel.swift in Sources */,
 			);
