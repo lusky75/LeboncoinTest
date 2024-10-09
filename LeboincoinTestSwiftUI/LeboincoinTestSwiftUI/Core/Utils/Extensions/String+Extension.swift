@@ -25,4 +25,11 @@ extension String {
     var encodeUrl: String {
         self.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? self
     }
+    
+    func path(at position: Int, separatedBy: String = "/") -> String? {
+        let splitArray = String(self.dropFirst()).components(separatedBy: separatedBy)
+        
+        guard splitArray.indices.contains(position) else { return nil }
+        return splitArray[position]
+    }
 }

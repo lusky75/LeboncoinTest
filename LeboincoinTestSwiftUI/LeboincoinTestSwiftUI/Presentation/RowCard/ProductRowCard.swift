@@ -23,15 +23,18 @@ struct ProductRowCard: View {
             
             if let title = viewModel.title {
                 Text(title)
+                    .foregroundColor(.black)
                     .font(.custom(.helveticaNeue65, size: 20))
                     .lineLimit(3)
             }
             if let price = viewModel.price {
                 Text(price)
+                    .foregroundColor(.black)
                     .font(.custom(.helveticaNeue65, size: 20))
             }
             if let category = viewModel.category {
                 Text(category)
+                    .foregroundColor(.black)
                     .font(.custom(.helveticaNeue35, size: 18))
             }
             
@@ -39,7 +42,7 @@ struct ProductRowCard: View {
                 HStack {
                     Text(viewModel.urgentTitle)
                         .font(.system(size: 11)) // Similar to UIFont.setAppFont(size: 11)
-                        .foregroundColor(.orange)
+                        .foregroundColor(.tintColor)
                         .padding(.horizontal, 10)
                         .frame(height: 20)
                         .background(Color.orange.opacity(0.15)) // UIColor.orange.withAlphaComponent(0.15)

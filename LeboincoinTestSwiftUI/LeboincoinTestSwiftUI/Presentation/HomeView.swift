@@ -72,13 +72,27 @@ struct HomeView: View {
     @ViewBuilder
     private var productGridView: some View {
         if let productList = viewModel.productList {
-            LazyVGrid(columns: productColumnGrid, alignment: .leading, spacing: 20, pinnedViews: [], content: {
-                ForEach(productList, id: \.self) { product in
-                    ProductRowCard(viewModel: ProductRowCardViewModel(model: product))
-                }
-            })
-            .padding(.top, 10)
+                LazyVGrid(columns: productColumnGrid, alignment: .leading, spacing: 20, pinnedViews: [], content: {
+                    ForEach(productList, id: \.self) { product in
+                        NavigationLink {
+                            Navigation.destinationForEntrypoint("/" + Navigation.Deeplink.Name.page.rawValue + "/" +  product.title)
+                        } label: {
+                            ProductRowCard(viewModel: ProductRowCardViewModel(model: product))
+                        }
+                    }
+                })
+                .padding(.top, 10)
         }
+    }
+}
+
+struct NavigationLazyView<Content: View>: View {
+    let build: () -> Content
+    init(_ build: @autoclosure @escaping () -> Content) {
+        self.build = build
+    }
+    var body: Content {
+        build()
     }
 }
 

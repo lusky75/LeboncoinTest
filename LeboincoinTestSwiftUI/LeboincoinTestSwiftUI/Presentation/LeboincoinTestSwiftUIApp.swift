@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct LeboincoinTestSwiftUIApp: App {
+    
     var body: some Scene {
         WindowGroup {
+            NavigationView {
             TabView {
+                // First tabBar item
                 HomeView(viewModel: HomeViewModel())
                     .tabItem {
                         Image(systemName: "chart.bar")
@@ -19,6 +22,7 @@ struct LeboincoinTestSwiftUIApp: App {
                         Text("Dashboard")
                     }
                 
+                // Second tabBar item
                 VStack {
                     Text("Vos favoris")
                 }
@@ -32,6 +36,8 @@ struct LeboincoinTestSwiftUIApp: App {
             .onAppear {
                 setupTabBarAppearance()
             }
+        }
+            
         }
     }
     
